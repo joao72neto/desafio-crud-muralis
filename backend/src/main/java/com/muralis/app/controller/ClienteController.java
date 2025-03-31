@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.muralis.app.entity.Cliente;
 import com.muralis.app.service.ClienteService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/clientes")
@@ -40,7 +43,7 @@ public class ClienteController {
     //Cadastrando um cliente no banco
     @PostMapping("/add")
     public ResponseEntity<Cliente> cadastrarClienteController(
-        @RequestBody Cliente cliente
+        @Valid @RequestBody Cliente cliente
     ){
         return new ResponseEntity<>(clienteService.cadastrarClienteService(cliente), HttpStatus.CREATED);
     }
@@ -63,7 +66,7 @@ public class ClienteController {
     //Atualizando um cliente 
     @PutMapping("/update")
     public ResponseEntity<Cliente> atualizarClienteController(
-        @RequestBody Cliente cliente
+        @Valid @RequestBody Cliente cliente
     ){
 
         if(clienteService.buscarClienteIdService(cliente.getClt_id()).isEmpty()){
