@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+
+@Data
 @Entity
 public class Cliente {
 

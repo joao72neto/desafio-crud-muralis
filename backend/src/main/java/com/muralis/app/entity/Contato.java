@@ -1,7 +1,9 @@
 package com.muralis.app.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 public class Contato {
 
