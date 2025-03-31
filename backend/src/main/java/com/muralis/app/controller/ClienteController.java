@@ -1,11 +1,12 @@
 package com.muralis.app.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,9 +43,22 @@ public class ClienteController {
 
     //Cadastrando um cliente no banco
     @PostMapping("/add")
-    public ResponseEntity<Cliente> cadastrarClienteController(
-        @Valid @RequestBody Cliente cliente
+    public ResponseEntity<?> cadastrarClienteController(
+        @Valid @RequestBody Cliente cliente,
+        BindingResult result
     ){
+        //Verificando os erros
+        if (result.hasErrors()) {
+            
+            //Retornando todos os erros de validação
+            List<String> erros = result.getAllErrors().stream()
+                .map(error -> error.getDefaultMessage())
+                .collect(Collectors.toList());
+            
+            return ResponseEntity.badRequest().body(erros);
+
+        }
+
         return new ResponseEntity<>(clienteService.cadastrarClienteService(cliente), HttpStatus.CREATED);
     }
 
@@ -65,9 +79,21 @@ public class ClienteController {
 
     //Atualizando um cliente 
     @PutMapping("/update")
-    public ResponseEntity<Cliente> atualizarClienteController(
-        @Valid @RequestBody Cliente cliente
+    public ResponseEntity<?> atualizarClienteController(
+        @Valid @RequestBody Cliente cliente,
+        BindingResult result
     ){
+
+        //Verificando os erros
+        if (result.hasErrors()) {
+            
+            List<String> erros = result.getAllErrors().stream()
+                .map(error -> error.getDefaultMessage())
+                .collect(Collectors.toList());
+
+            return ResponseEntity.badRequest().body(erros);
+            
+        }
 
         if(clienteService.buscarClienteIdService(cliente.getClt_id()).isEmpty()){
             return ResponseEntity.notFound().build();
