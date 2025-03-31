@@ -3,10 +3,8 @@ package com.muralis.app.entity;
 import java.time.LocalDate;
 import java.util.List;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
-
 
 @Data
 @Entity
@@ -30,7 +28,7 @@ public class Cliente {
     @Column(length = 255)
     private String clt_endereco;
 
-    //Fazendo uma lista para armazenar os cotatos
+    //Fazendo uma lista para armazenar os contatos
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contato> contatos;
 

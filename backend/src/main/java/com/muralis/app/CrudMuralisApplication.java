@@ -9,5 +9,4 @@ public class CrudMuralisApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudMuralisApplication.class, args);
 	}
-
 }

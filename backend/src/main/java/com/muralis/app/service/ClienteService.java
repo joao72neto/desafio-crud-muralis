@@ -3,7 +3,6 @@ package com.muralis.app.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.catalina.Contained;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +13,8 @@ import com.muralis.app.repository.ClienteRepository;
 @Service
 public class ClienteService {
     
-
     @Autowired
     private ClienteRepository clienteRepository;
-
 
     //Listando todos os clientes do banco de dados
     public List<Cliente> buscarTodosClientesService(){
