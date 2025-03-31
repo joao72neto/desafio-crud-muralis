@@ -1,5 +1,7 @@
 package com.muralis.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,5 +26,6 @@ public class Contato {
     //Criando a chave estrangeira de cliente
     @ManyToOne
     @JoinColumn(name = "con_clt_id", nullable = false)
+    @JsonIgnore
     private Cliente cliente;
 }

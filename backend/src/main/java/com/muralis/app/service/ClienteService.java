@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.muralis.app.entity.Cliente;
 import com.muralis.app.repository.ClienteRepository;
 
+@Service
 public class ClienteService {
     
 
@@ -23,6 +25,11 @@ public class ClienteService {
     //Buscando cliente por id
     public Optional<Cliente> buscarClienteIdService(Integer clt_id){
         return clienteRepository.findById(clt_id);
+    }
+
+    //Filtrando cliente por nome ou cpf
+    public List<Cliente> filtrarClientesNomeCpfService(String clt_nome, String clt_cpf){
+        return clienteRepository.findByNomeOrCpf(clt_nome, clt_cpf);
     }
 
     //Inserindo cliente no banco 

@@ -3,6 +3,7 @@ package com.muralis.app.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,7 +25,7 @@ public class Cliente {
     private String clt_cpf;
 
     @Column
-    private LocalDate clt_dataNasc;
+    private LocalDate clt_data_nasc;
 
     @Column(length = 255)
     private String clt_endereco;
