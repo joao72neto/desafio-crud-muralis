@@ -39,29 +39,30 @@ public class ClienteController {
 
     //Cadastrando um cliente no banco
     @PostMapping("/add")
-    public ResponseEntity<Cliente> cadastrarController(
+    public ResponseEntity<Cliente> cadastrarClienteController(
         @RequestBody Cliente cliente
     ){
         return new ResponseEntity<>(clienteService.cadastrarClienteService(cliente), HttpStatus.CREATED);
     }
 
     //Deletando um cliente por id
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deletarController(
+    @DeleteMapping("/delete/{clt_id}")
+    public ResponseEntity<Void> deletarClienteController(
         @PathVariable Integer clt_id
     ){
-        clienteService.deletarClienteIdService(clt_id);
-
+        
         if(clienteService.buscarClienteIdService(clt_id).isEmpty()){
             return ResponseEntity.notFound().build();
         }
+
+        clienteService.deletarClienteIdService(clt_id);
 
         return ResponseEntity.noContent().build();
     }
 
     //Atualizando um cliente 
     @PutMapping("/update")
-    public ResponseEntity<Cliente> atualizarController(
+    public ResponseEntity<Cliente> atualizarClienteController(
         @RequestBody Cliente cliente
     ){
 

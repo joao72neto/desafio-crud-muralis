@@ -31,7 +31,7 @@ public class Cliente {
     private String clt_endereco;
 
     //Fazendo uma lista para armazenar os cotatos
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contato> contatos;
 
 }

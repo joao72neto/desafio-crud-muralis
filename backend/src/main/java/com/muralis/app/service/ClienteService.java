@@ -3,10 +3,12 @@ package com.muralis.app.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.catalina.Contained;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.muralis.app.entity.Cliente;
+import com.muralis.app.entity.Contato;
 import com.muralis.app.repository.ClienteRepository;
 
 @Service
@@ -34,6 +36,11 @@ public class ClienteService {
 
     //Inserindo cliente no banco 
     public Cliente cadastrarClienteService(Cliente cliente){
+
+        for(Contato contato : cliente.getContatos()){
+            contato.setCliente(cliente);
+        }
+
         return clienteRepository.save(cliente);
     }
 
@@ -47,6 +54,10 @@ public class ClienteService {
 
         Cliente cliente_atualizado = clienteRepository.findById(cliente.getClt_id()).get();
         cliente_atualizado = cliente;
+
+        for(Contato contato : cliente_atualizado.getContatos()){
+            contato.setCliente(cliente_atualizado);
+        }
 
         return clienteRepository.save(cliente_atualizado);
     }
