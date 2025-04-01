@@ -1,0 +1,35 @@
+/*Importando as cores do site*/
+@import url('colors.css');
+
+/*Sign-up settings*/
+.container-signup{
+    background-color: var(--branco);
+    min-width: 800px;
+    margin: 20px auto;
+    padding: 25px;
+    box-shadow: 0px 0px 20px #0000005b;
+    border-radius: 20px;
+}
+
+.cliente{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.cliente h2{
+    padding: 10px 0;
+    text-align: center;
+}
+
+.cliente input{
+    width: 100%;
+    margin: 10px 0;
+}
+
+form button{
+    margin: 10px 0;
+}
+
+
+
+

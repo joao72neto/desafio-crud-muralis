@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/cadastroEdicaoCliente.css">
+    <title>Cadastro de Clientes</title>
+
+</head>
+<body class="signup">
+
+    <div class="main-container">
+
+        <div class="flex-container">
+            <div class="container-signup">
+            
+                <form method="POST">
+            
+                    <div class="cliente">
+                        <h2>Editar Contato</h2>
+                        <label for="tipo">Tipo</label>
+                        <input type="text" id="tipo" name="tipo" placeholder="Ex: Telefone, e-mail..." value="+55 11 94536-3563" required>
+
+                        <label for="valor">Valor</label>
+                        <input type="text" id="valor " name="valor" placeholder="Ex: teste@email.com" value="joao.neto@email.com" required>
+
+                        <label for="obs">Observação</label>
+                        <input type="text" id="obs" name="obs" placeholder="Ex: Contato Principal" value="Contato Principal" required>
+
+                    </div>
+                    <div class="center">
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/cadastroEdicaoContato.css">
+    <title>Contatos Cadastrados</title>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="container-contato-flex">
+            <div class="container-contato-main">
+
+                <h2 class="center">Contatos</h2>
+        
+                <div class="contato-wrapper">
+                    <div class="contato-main">
+                        <p class="invisible contato-id"><%=carttao.car_id%></p>
+                        <h2>Telefone</h2>
+                        <p>+55 11 94325-6436</p>
+                        <p><strong>Obs: </strong>Telefone Principal</p>
+                    </div>
+                    <div class="acoes-contato">
+                        <a class="alt" href="./edicao/editarContato.html">Editar</a>
+                        <a class="delete" href="">Excluir</a>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+
+    <script src="../javaScript/pages/contato.js" ></script>
+</body>
+</html>

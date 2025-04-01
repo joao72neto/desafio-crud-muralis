@@ -1,0 +1,91 @@
+/*Importando as cores do site*/
+@import url('colors.css');
+
+/*Card-main settings*/
+.container-contato-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container-contato-main{
+    background-color: var(--branco);
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0px 0px 10px #0000005b;
+    padding: 30px 50px 40px 50px;
+}
+
+
+.container-contato-main .title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-contato-main .contato-wrapper{
+    display: flex;
+    background-color: white;
+    margin: 20px 0;
+    box-shadow: 0px 0px 10px #0000005b;
+    border-radius: 20px;
+    padding: 30px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contato-wrapper .acoes-contato{
+    align-self: center;
+}
+
+.contato-main p, .contato h2{
+    margin: 5px 0;
+}
+
+.container-contato-main .contato-add{
+    margin-top: 50px;
+    text-align: center;
+}
+
+/*contato settings*/
+.container-card{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: var(--branco);
+    flex-basis: 800px;
+    margin: 20px auto;
+    padding: 25px;
+    box-shadow: 0px 0px 20px #0000005b;
+    border-radius: 20px;
+}
+
+.card h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-forms-card{
+   display: grid;
+   grid-template-columns: 1fr;
+}
+
+.container-forms-card input{
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.container-forms-card .cartoes{
+    margin: 30px 80px;
+}
+
+.container-forms-card button{
+    grid-column: span 2;
+    justify-self: center;
+}
