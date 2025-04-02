@@ -1,10 +1,16 @@
+import { validarContato } from "/javaScript/validations/validacoesContato.js";
 import { editarService } from "/javaScript/service/operacoesService.js";
 import { buscarClienteIdService } from "/javaScript/service/operacoesService.js";
+
 
 //Função que cadastra um contato novo
 document.querySelector('form').addEventListener('submit', async function(event){
   
     event.preventDefault();
+
+    if(!validarContato(event)){
+        return;
+    }
 
     //Pegando dados do formulário
     const formDados = new FormData(event.target);

@@ -1,5 +1,9 @@
 import { editarService } from "/javaScript/service/operacoesService.js";
 import { buscarClienteIdService } from "/javaScript/service/operacoesService.js";
+import { validarCliente } from "/javaScript/validations/validacoesCliente.js";
+import { mascarasCliente } from "/javaScript/validations/validacoesCliente.js";
+
+mascarasCliente();
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -23,6 +27,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.querySelector('form').addEventListener('submit', async function(event){
   
     event.preventDefault();
+
+    if(!validarCliente(event)){
+        return;
+    }
 
     //Obetendo o ID do cliente
     const urlParams = new URLSearchParams(window.location.search);

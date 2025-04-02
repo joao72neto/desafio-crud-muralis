@@ -1,7 +1,6 @@
 import { editarService } from "/javaScript/service/operacoesService.js";
 import { buscarClienteIdService } from "/javaScript/service/operacoesService.js";
 
-
 document.addEventListener('DOMContentLoaded', () => {
     fetchClientes();
 });
@@ -17,7 +16,7 @@ async function fetchClientes() {
         const contatos = cliente.contatos;
 
         //Obtendo o container
-        const container = document.querySelector('.all-contatos')
+        const container = document.querySelector('.all-contatos');
 
         contatos.forEach(contato => {
             const contatoDiv = document.createElement('div');

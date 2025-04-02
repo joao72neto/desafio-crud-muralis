@@ -1,5 +1,7 @@
+import { validarContato } from "/javaScript/validations/validacoesContato.js";
 import { editarService } from "/javaScript/service/operacoesService.js";
 import { buscarClienteIdService } from "/javaScript/service/operacoesService.js";
+
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -25,6 +27,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.querySelector('form').addEventListener('submit', async function(event){
   
     event.preventDefault();
+
+    if(!validarContato(event)){
+        return;
+    }
 
     //Obetendo o ID do cliente
     const urlParams = new URLSearchParams(window.location.search);
