@@ -16,7 +16,7 @@ async function fetchClientes() {
             clienteDiv.classList.add('wrapper');
             clienteDiv.innerHTML = `
                 <div class="cliente">
-                    <p class="invisible cliente-id">1</p>
+                    <p class="invisible cliente-id">${cliente.clt_id}</p>
                     <p>${cliente.clt_nome}</p>
                     <p>${cliente.clt_data_nasc}</p>
                 </div>

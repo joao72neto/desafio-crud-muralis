@@ -1,13 +1,13 @@
 package com.muralis.app.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +40,17 @@ public class ClienteController {
         return ResponseEntity.ok(
             clienteService.filtrarClientesNomeCpfService(clt_nome, clt_cpf)
         );
+    }
+
+    //Buscando o cliente por id
+    @GetMapping("/{clt_id}")
+    public ResponseEntity<Optional<Cliente>> buscarClienteIdControlller(@PathVariable Integer clt_id){
+
+        if (clienteService.buscarClienteIdService(clt_id).isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(clienteService.buscarClienteIdService(clt_id));
     }
 
     //Cadastrando um cliente no banco

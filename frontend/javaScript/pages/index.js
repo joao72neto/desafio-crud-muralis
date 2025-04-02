@@ -20,7 +20,7 @@ document.querySelector('.container-index').addEventListener('click', function(ev
         submenu.classList.add('cont_submenu');
 
         submenu.innerHTML = `
-            <a href="../pages/contatos.html">Ver Todos</a>
+            <a href="../pages/contatos.html?clt_id=${id}">Ver Todos</a>
             <a href="../pages/cadastro/cadastroContato.html">Novo Contato</a>
         `;
 
@@ -43,6 +43,6 @@ document.querySelector('.container-index').addEventListener('click', function(ev
         let id = clienteWrapper.querySelector('.cliente-id').textContent;
 
         // Redireciona para a página de edição com o ID do cliente na URL
-        window.location.href = '/frontend/pages/edicao/editarCliente.html';
+        window.location.href = `/frontend/pages/edicao/editarCliente.html?clt_id=${id}`;
     }
 });
