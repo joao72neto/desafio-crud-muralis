@@ -28,7 +28,7 @@ async function fetchClientes() {
                     <p><strong>Obs: </strong>${contato.con_observacao}</p>
                 </div>
                 <div class="acoes-contato">
-                    <a class="alt" href="./edicao/editarContato.html">Editar</a>
+                    <a class="alt" href="./edicao/editarContato.html?clt_id=${cliente.clt_id}&con_id=${contato.con_id}">Editar</a>
                     <a class="delete" href="">Excluir</a>
                 </div>
             `;
