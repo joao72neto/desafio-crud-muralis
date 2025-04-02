@@ -17,7 +17,7 @@ async function fetchClientes() {
         console.log(contatos);
 
         //Obtendo o container
-        const container = document.querySelector('.container-contato-main')
+        const container = document.querySelector('.all-contatos')
 
         contatos.forEach(contato => {
             const contatoDiv = document.createElement('div');

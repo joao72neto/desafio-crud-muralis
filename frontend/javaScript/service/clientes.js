@@ -1,24 +1,51 @@
+//Carregando todos os usuários do banco
 document.addEventListener('DOMContentLoaded', () => {
     fetchClientes();
+    filtro();
 });
 
-async function fetchClientes() {
+
+//Adicionando funcionamendo do filtro
+function filtro(){
+    document.querySelector('#btn-filtro').addEventListener('click', async (event) => {
+        
+        event.preventDefault();
+
+        //Obetndo os dados
+        const nome = document.getElementById("nome").value;
+        const cpf = document.getElementById("cpf").value;
+    
+        //Montando a url
+        let url = '/clientes?';
+        if (nome) url += `clt_nome=${encodeURIComponent(nome)}&`;
+        if (cpf) url += `clt_cpf=${encodeURIComponent(cpf)}&`;
+    
+        url = url.slice(0, -1);
+
+        await fetchClientes(url);
+    
+    });
+}
+
+async function fetchClientes(url='/clientes') {
     try {
-        const response = await fetch('http://localhost:8080/clientes'); 
+       
+        let response = await fetch(`http://localhost:8080${url}`); 
         const clientes = await response.json();
 
         //Obtendo o container
-        const container = document.querySelector('.container-index')
+        const container = document.querySelector('.all-clientes');
+        container.innerHTML = '';
 
         clientes.forEach(cliente => {
-            const clienteDiv = document.createElement('div');
 
+            const clienteDiv = document.createElement('div');
             clienteDiv.classList.add('wrapper');
             clienteDiv.innerHTML = `
                 <div class="cliente">
                     <p class="invisible cliente-id">${cliente.clt_id}</p>
                     <p>${cliente.clt_nome}</p>
-                    <p>${cliente.clt_data_nasc}</p>
+                    <p>${cliente.clt_cpf}</p>
                 </div>
                 <div class="acoes">
                     <a class="cont">Contatos</a>
@@ -33,3 +60,5 @@ async function fetchClientes() {
         console.error('Erro ao buscar clientes:', error);
     }
 }
+
+
