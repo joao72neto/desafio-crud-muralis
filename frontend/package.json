@@ -1,0 +1,16 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Front end crud muralis",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "João Neto",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
