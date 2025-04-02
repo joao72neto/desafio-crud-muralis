@@ -26,6 +26,8 @@ document.querySelector('form').addEventListener('submit', async function(event){
         contatos: []  
     };
 
+    console.log(cliente)
+
     //Cadastrando o cliente
     const res = await cadastrarService(cliente);
 
