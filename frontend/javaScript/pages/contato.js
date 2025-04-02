@@ -8,7 +8,5 @@ document.querySelectorAll('.delete').forEach(button => {
         wrapper.remove();
 
         title.textContent = 'Nenhum Contato Cadastrado';
-
-        
     })
 });
