@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 //Juntando as rotas
-const apisRoute = require('./apisRoute');
-const viewRoute = require('./viewsRoute');
+const clienteRoute = require('./clienteRoute');
+const contatoRoute = require('./contatoRoute');
 
-router.use('/', apisRoute);
-router.use('/', viewRoute);
+router.use('/', clienteRoute);
+router.use('/', contatoRoute);
 
 //Expotando as rotas pra o app
 module.exports = router;

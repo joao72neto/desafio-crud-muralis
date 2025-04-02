@@ -56,7 +56,6 @@ document.querySelector('.all-contatos').addEventListener('click', async function
             return;
         }
 
-
         //Obetendo o ID do cliente
         const urlParams = new URLSearchParams(window.location.search);
         const clt_id = urlParams.get('clt_id');
