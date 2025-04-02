@@ -1,36 +1,32 @@
-//Contatos do usuário
-document.querySelectorAll('.cont').forEach(botao => {
-    botao.addEventListener('click', function (event) {
+//Indo para as páginas dos contatos dos usuários
+document.querySelector('.container-index').addEventListener('click', function(event) {
+    if (event.target.classList.contains('cont')) {
+        event.stopPropagation(); 
 
-        event.stopPropagation();
-      
-        
-        //Obetendo o id
-        let clienteWrapper = this.closest('.wrapper');
+        let clienteWrapper = event.target.closest('.wrapper');
         let id = clienteWrapper.querySelector('.cliente-id').textContent;
 
-        //Retirando o menu ao clicar de novo
-        let submenuAtual = this.querySelector('.cont_submenu');
-
-        if(submenuAtual){
+        // Retirando o menu ao clicar de novo
+        let submenuAtual = event.target.querySelector('.cont_submenu');
+        if (submenuAtual) {
             submenuAtual.remove();
             return;
         }
 
+        // Remove todos os outros submenus antes de abrir o novo
         document.querySelectorAll('.cont_submenu').forEach(menu => menu.remove());
 
         let submenu = document.createElement('div');
         submenu.classList.add('cont_submenu');
 
         submenu.innerHTML = `
-            <a href="../pages/contatos.html" >Ver Todos</a>
+            <a href="../pages/contatos.html">Ver Todos</a>
             <a href="../pages/cadastro/cadastroContato.html">Novo Contato</a>
         `;
 
         // Adicionando submenu ao lado do botão clicado
-        this.appendChild(submenu);
-
-    });
+        event.target.appendChild(submenu);
+    }
 });
 
 
@@ -41,13 +37,12 @@ document.addEventListener('click', () => {
 
 
 //Edição de clientes
-document.querySelectorAll('.edit').forEach(button => {
-
-    button.addEventListener('click', function(){
-
-        let clienteWrapper = this.closest('.wrapper');
+document.querySelector('.container-index').addEventListener('click', function(event) {
+    if (event.target.classList.contains('edit')) {
+        let clienteWrapper = event.target.closest('.wrapper');
         let id = clienteWrapper.querySelector('.cliente-id').textContent;
 
-        window.location.href = `../../pages/edicao/editarCliente.html`;
-    });
+        // Redireciona para a página de edição com o ID do cliente na URL
+        window.location.href = '/frontend/pages/edicao/editarCliente.html';
+    }
 });
