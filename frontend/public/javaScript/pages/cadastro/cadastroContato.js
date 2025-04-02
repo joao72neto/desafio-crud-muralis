@@ -1,5 +1,5 @@
 import { editarService } from "/javaScript/service/operacoesService.js";
-
+import { buscarClienteIdService } from "/javaScript/service/operacoesService.js";
 
 //Função que cadastra um contato novo
 document.querySelector('form').addEventListener('submit', async function(event){
@@ -15,8 +15,7 @@ document.querySelector('form').addEventListener('submit', async function(event){
     const clt_id = urlParams.get('clt_id');
 
     //Chamando o cliente por id
-    let response = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
-    const cliente = await response.json();
+    const cliente = await buscarClienteIdService(clt_id);
 
     //Preparando os dados para cadastro
     cliente.contatos.push(

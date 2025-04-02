@@ -1,4 +1,5 @@
 import { editarService } from "/javaScript/service/operacoesService.js";
+import { buscarClienteIdService } from "/javaScript/service/operacoesService.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,8 +13,7 @@ async function fetchClientes() {
         const clt_id = urlParams.get('clt_id');
 
         //Obtendo os contatos do cliente
-        const response = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
-        const cliente = await response.json();
+        const cliente = await buscarClienteIdService(clt_id);
         const contatos = cliente.contatos;
 
         //Obtendo o container
@@ -61,8 +61,7 @@ document.querySelector('.all-contatos').addEventListener('click', async function
         const clt_id = urlParams.get('clt_id');
 
         //Obtendo os contatos do cliente
-        const response = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
-        const cliente = await response.json();
+        const cliente = await buscarClienteIdService(clt_id);
 
         // Encontrar o cliente mais próximo e pegar o ID correto
         const clienteElement = event.target.closest('.contato-wrapper');

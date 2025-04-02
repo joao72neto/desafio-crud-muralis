@@ -1,5 +1,66 @@
 import { deletarService } from "/javaScript/service/operacoesService.js";
 
+document.addEventListener('DOMContentLoaded', () => {
+    filtro();
+    fetchClientes();
+});
+
+//Adicionando funcionamendo do filtro
+function filtro(){
+    document.querySelector('#btn-filtro').addEventListener('click', async (event) => {
+        
+        event.preventDefault();
+
+        //Obetndo os dados
+        const nome = document.getElementById("nome").value;
+        const cpf = document.getElementById("cpf").value;
+    
+        //Montando a url
+        let url = '/clientes?';
+        if (nome) url += `clt_nome=${encodeURIComponent(nome)}&`;
+        if (cpf) url += `clt_cpf=${encodeURIComponent(cpf)}&`;
+    
+        url = url.slice(0, -1);
+
+        await fetchClientes(url);
+    
+    });
+}
+
+async function fetchClientes(url='/clientes') {
+    try {
+       
+        let response = await fetch(`http://localhost:8080${url}`); 
+        const clientes = await response.json();
+
+        //Obtendo o container
+        const container = document.querySelector('.all-clientes');
+        container.innerHTML = '';
+
+        clientes.forEach(cliente => {
+
+            const clienteDiv = document.createElement('div');
+            clienteDiv.classList.add('wrapper');
+            clienteDiv.innerHTML = `
+                <div class="cliente">
+                    <p class="invisible cliente-id">${cliente.clt_id}</p>
+                    <p>${cliente.clt_nome}</p>
+                    <p>${cliente.clt_cpf}</p>
+                </div>
+                <div class="acoes">
+                    <a class="cont">Contatos</a>
+                    <a class="edit">Editar</a>
+                    <a class="excl">Excluir</a>
+                </div>
+            `;
+
+            container.appendChild(clienteDiv);
+        });
+    } catch (error) {
+        console.error('Erro ao buscar clientes:', error);
+    }
+}
+
 
 //Indo para as páginas dos contatos dos usuários
 document.querySelector('.container-index').addEventListener('click', function(event) {

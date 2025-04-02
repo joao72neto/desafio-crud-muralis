@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Página com todos os clientes
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     res.render('index');
 });
 

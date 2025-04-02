@@ -1,3 +1,22 @@
+//Consultar 
+export async function buscarClienteIdService(clt_id){
+
+    try{
+        
+        let res = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
+        
+        if(res.ok){
+            const cliente = await res.json();
+            return cliente;
+        }
+
+        return res;
+
+    }catch(err){
+        console.error(`Erro cadastrarService - service: ${err}`);
+    }
+}
+
 //Cadastro
 export async function cadastrarService(dados) {
     try{
@@ -14,7 +33,7 @@ export async function cadastrarService(dados) {
         return res;
     
     }catch(err){
-        console.log(`Erro cadastrarService - service: ${err}`);
+        console.error(`Erro cadastrarService - service: ${err}`);
     }  
 }
 
@@ -35,7 +54,7 @@ export async function editarService(dados){
         return res;
 
     }catch(err){
-        console.log(`Erro editarService - service: ${err}`);
+        console.error(`Erro editarService - service: ${err}`);
     }  
 }
 
@@ -51,7 +70,7 @@ export async function deletarService(clt_id) {
         return res;
         
     }catch(err){
-        console.log(`Erro deletarService - service: ${err}`);
+        console.error(`Erro deletarService - service: ${err}`);
     }
 }
 

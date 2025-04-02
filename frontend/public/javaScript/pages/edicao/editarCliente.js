@@ -1,5 +1,5 @@
 import { editarService } from "/javaScript/service/operacoesService.js";
-
+import { buscarClienteIdService } from "/javaScript/service/operacoesService.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -7,11 +7,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const clt_id = urlParams.get('clt_id');
 
-
     //Chamando o cliente por id
-    let response = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
-    const cliente = await response.json();
-
+    const cliente = await buscarClienteIdService(clt_id);
 
     //Preenchendo o forms com os dados já cadastrados
     document.querySelector('#nome').value = cliente.clt_nome;
@@ -32,8 +29,7 @@ document.querySelector('form').addEventListener('submit', async function(event){
     const clt_id = urlParams.get('clt_id');
 
     //Chamando o cliente por id
-    let response = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
-    const cliente = await response.json();
+    const cliente = await buscarClienteIdService(clt_id);
 
     //Pegando dados do formulário
     const formDados = new FormData(event.target);

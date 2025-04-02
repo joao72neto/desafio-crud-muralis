@@ -1,5 +1,5 @@
 import { editarService } from "/javaScript/service/operacoesService.js";
-
+import { buscarClienteIdService } from "/javaScript/service/operacoesService.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     //Chamando o cliente por id
-    let response = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
-    const cliente = await response.json();
+    const cliente = await buscarClienteIdService(clt_id);
 
     const contato = cliente.contatos.find(con => con.con_id == con_id);
 
@@ -32,9 +31,8 @@ document.querySelector('form').addEventListener('submit', async function(event){
     const clt_id = urlParams.get('clt_id');
     const con_id = urlParams.get('con_id');
 
-    //Chamando o cliente por id
-    let response = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
-    const cliente = await response.json();
+    //Chamando o cliente por id 
+    const cliente = await buscarClienteIdService(clt_id);
 
     //Pegando dados do formulário
     const formDados = new FormData(event.target);
