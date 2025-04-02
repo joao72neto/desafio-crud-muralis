@@ -29,9 +29,10 @@ document.querySelector('form').addEventListener('submit', async function(event){
         }
 
         alert('Não foi possível cadastrar o cliente');
+        console.log(res);
 
     }catch(err){
-        console.log(`Erro cadastro - service: ${err}`);
+        console.log(`Erro cadastroCliente - service: ${err}`);
     }   
 });
 

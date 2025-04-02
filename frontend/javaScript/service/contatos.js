@@ -7,14 +7,11 @@ async function fetchClientes() {
         //Obetendo o ID do cliente
         const urlParams = new URLSearchParams(window.location.search);
         const clt_id = urlParams.get('clt_id');
-        console.log(clt_id);
 
         //Obtendo os contatos do cliente
         const response = await fetch(`http://localhost:8080/clientes/${clt_id}`); 
         const cliente = await response.json();
         const contatos = cliente.contatos;
-
-        console.log(contatos);
 
         //Obtendo o container
         const container = document.querySelector('.all-contatos')

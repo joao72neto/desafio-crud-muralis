@@ -1,6 +1,8 @@
 //Msg personalizada caso não haja contatos
-const contato = document.querySelector('.contato-wrapper');
+const contato = document.querySelector('.all-contatos').innerHTML;
 
-if(!contato){
+console.log(contato);
+
+if(contato.textContent === ''){
     document.querySelector('h2').textContent = 'Nenhum contato cadastrado';
 }

@@ -21,7 +21,7 @@ document.querySelector('.container-index').addEventListener('click', function(ev
 
         submenu.innerHTML = `
             <a href="../pages/contatos.html?clt_id=${id}">Ver Todos</a>
-            <a href="../pages/cadastro/cadastroContato.html">Novo Contato</a>
+            <a href="../pages/cadastro/cadastroContato.html?clt_id=${id}">Novo Contato</a>
         `;
 
         // Adicionando submenu ao lado do botão clicado
