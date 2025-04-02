@@ -68,9 +68,9 @@ document.querySelector('form').addEventListener('submit', async function(event){
 
     if(res.ok){
         alert('Contato atualizado com seucesso');
+        window.location.href = `/contatos?clt_id=${clt_id}`;
         return;
     }
 
     alert('Não foi possível atualizar o contato'); 
 });
-

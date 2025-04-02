@@ -59,6 +59,7 @@ document.querySelector('form').addEventListener('submit', async function(event){
 
     if(res.ok){
         alert('Cliente atualizado com seucesso');
+        window.location.href = '/';
         return;
     }
 

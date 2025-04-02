@@ -33,6 +33,7 @@ document.querySelector('form').addEventListener('submit', async function(event){
 
     if(res.ok){
         alert('Cliente cadastrado com sucesso!');
+        window.location.href = '/';
         return;
     }
 
