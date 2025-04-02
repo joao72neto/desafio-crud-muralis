@@ -1,3 +1,6 @@
+import { editarService } from "/javaScript/service/operacoesService.js";
+
+
 //Função que cadastra um contato novo
 document.querySelector('form').addEventListener('submit', async function(event){
   
@@ -33,25 +36,14 @@ document.querySelector('form').addEventListener('submit', async function(event){
         contatos: cliente.contatos
     };
 
-    console.log(clienteContato);
+    //Editando o contato
+    const res = await editarService(clienteContato);
 
-    try{
-        const res = await fetch('http://localhost:8080/clientes/update',{
-            method: 'PUT',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify(clienteContato)
-        });
+    if(res.ok){
+        alert('Contato cadastrado com seucesso');
+        return;
+    }
 
-        if(res.ok){
-            alert('Contato adicionado com sucesso!');
-            return;
-        }
-
-        alert('Não foi possível adicionar o contato');
-        console.log(res);
-
-    }catch(err){
-        console.log(`Erro cadastroContato - service: ${err}`);
-    }   
+    alert('Não foi possível cadastrar o contato');  
 });
 

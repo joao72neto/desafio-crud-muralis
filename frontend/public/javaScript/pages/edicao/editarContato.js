@@ -1,3 +1,6 @@
+import { editarService } from "/javaScript/service/operacoesService.js";
+
+
 document.addEventListener('DOMContentLoaded', async () => {
 
     //Obetendo o ID do cliente e do Contato
@@ -56,23 +59,14 @@ document.querySelector('form').addEventListener('submit', async function(event){
         contatos: cliente.contatos 
     };
 
-    try{
-        const res = await fetch('http://localhost:8080/clientes/update',{
-            method: 'PUT',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify(contatoEditado)
-        });
+    //Editando o contato
+    const res = await editarService(contatoEditado);
 
-        if(res.ok){
-            alert('Contato atualizado com sucesso!');
-            return;
-        }
+    if(res.ok){
+        alert('Contato atualizado com seucesso');
+        return;
+    }
 
-        alert('Não foi possível atualizar o contato');
-        console.log(res);
-
-    }catch(err){
-        console.log(`Erro editarContato  - service: ${err}`);
-    }   
+    alert('Não foi possível atualizar o contato'); 
 });
 

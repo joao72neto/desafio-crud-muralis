@@ -1,3 +1,6 @@
+import { cadastrarService } from "/javaScript/service/operacoesService.js";
+
+
 //Função que cadastra um cliente novo
 document.querySelector('form').addEventListener('submit', async function(event){
   
@@ -16,25 +19,14 @@ document.querySelector('form').addEventListener('submit', async function(event){
         contatos: []  
     };
 
-    console.log(JSON.stringify(cliente));
+    //Cadastrando o cliente
+    const res = await cadastrarService(cliente);
 
-    try{
-        const res = await fetch('http://localhost:8080/clientes/add',{
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify(cliente)
-        });
+    if(res.ok){
+        alert('Cliente cadastrado com sucesso!');
+        return;
+    }
 
-        if(res.ok){
-            alert('Cliente cadastrado com sucesso!');
-            return;
-        }
-
-        alert('Não foi possível cadastrar o cliente');
-        console.log(res);
-
-    }catch(err){
-        console.log(`Erro cadastroCliente - service: ${err}`);
-    }   
+    alert('Não foi possível cadastrar o cliente'); 
 });
 

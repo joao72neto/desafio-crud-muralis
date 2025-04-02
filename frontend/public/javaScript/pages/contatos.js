@@ -1,3 +1,6 @@
+import { editarService } from "/javaScript/service/operacoesService.js";
+
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchClientes();
 });
@@ -78,23 +81,13 @@ document.querySelector('.all-contatos').addEventListener('click', async function
             contatos: cliente.contatos 
         };
 
-        try{
-            const res = await fetch('http://localhost:8080/clientes/update',{
-                method: 'PUT',
-                headers: {'Content-Type':'application/json'},
-                body: JSON.stringify(contatoDeletado)
-            });
-    
-            if(res.ok){
-                window.location.reload();
-                return;
-            }
-    
-            alert('Não foi possível deletar o contato');
-            console.log(res);
-    
-        }catch(err){
-            console.log(`Erro: ${err}`);
-        }   
+        const res = await editarService(contatoDeletado);
+        
+        if(res.ok){
+            window.location.reload();
+            return;
+        }
+        
+        alert('Não foi possível deletar o contato');  
     }
 });

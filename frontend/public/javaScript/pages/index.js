@@ -1,3 +1,6 @@
+import { deletarService } from "/javaScript/service/operacoesService.js";
+
+
 //Indo para as páginas dos contatos dos usuários
 document.querySelector('.container-index').addEventListener('click', function(event) {
     if (event.target.classList.contains('cont')) {
@@ -46,3 +49,32 @@ document.querySelector('.container-index').addEventListener('click', function(ev
         window.location.href = `/edicao?clt_id=${id}`;
     }
 });
+
+//Excluindo um cliente e seus contatos
+document.querySelector('.container-index').addEventListener('click', async function(event) {
+    
+    if(event.target.classList.contains('excl')){
+
+        let resposta = confirm('Deseja realmente excluir o usuário?');
+
+        if(!resposta){
+            return;
+        }
+
+        // Encontrar o cliente mais próximo e pegar o ID correto
+        const clienteElement = event.target.closest('.wrapper');
+        const clt_id = clienteElement.querySelector('.cliente-id').textContent;
+
+
+        //Deletando o cliente
+        const res = await deletarService(clt_id);
+
+        if(res.ok){
+            window.location.reload();
+            return;
+        }
+
+        alert('Não foi possível atualizar o contato'); 
+    }
+});
+
