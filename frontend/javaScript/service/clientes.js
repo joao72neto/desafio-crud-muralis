@@ -62,3 +62,32 @@ async function fetchClientes(url='/clientes') {
 }
 
 
+//Excluindo um cliente e seus contatos
+document.querySelector('.container-index').addEventListener('click', async function(event) {
+    
+    if(event.target.classList.contains('excl')){
+
+        let resposta = confirm('Deseja realmente excluir o usuário?');
+
+        if(!resposta){
+            return;
+        }
+
+        // Encontrar o cliente mais próximo e pegar o ID correto
+        const clienteElement = event.target.closest('.wrapper');
+        const clt_id = clienteElement.querySelector('.cliente-id').textContent;
+
+
+        //Deletando o cliente
+        try{
+            const res =  await fetch(`http://localhost:8080/clientes/delete/${clt_id}`, {method: 'DELETE'});
+
+            if(res.ok){
+                window.location.reload();
+            }
+            
+        }catch(err){
+            console.log(`Erro ${err}`);
+        }
+    }
+});
