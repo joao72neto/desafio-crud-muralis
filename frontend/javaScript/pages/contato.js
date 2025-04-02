@@ -1,12 +1,6 @@
-document.querySelectorAll('.delete').forEach(button => {
-    button.addEventListener('click', function(event){
+//Msg personalizada caso não haja contatos
+const contato = document.querySelector('.contato-wrapper');
 
-        event.preventDefault();
-
-        const title = document.querySelector('h2')
-        const wrapper = this.closest('.contato-wrapper');
-        wrapper.remove();
-
-        title.textContent = 'Nenhum Contato Cadastrado';
-    })
-});
+if(!contato){
+    document.querySelector('h2').textContent = 'Nenhum contato cadastrado';
+}
