@@ -9,7 +9,8 @@ router.get('/contatos', (req, res) => {
 
 // Página de edição
 router.get('/contatos/edicao', (req, res) => {
-    res.render('edicao/editarContato');
+    const clt_id = req.query.clt_id;
+    res.render('edicao/editarContato', {clt_id: clt_id});
 });
 
 // Página de cadastro

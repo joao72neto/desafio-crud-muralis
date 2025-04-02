@@ -9,24 +9,31 @@
 </head>
 <body>
 
-    <div class="flex-container">
+    <div class="main-container">
 
-        <div class="container-index">
+        <%- include('components/headerIndex', {
+            title: 'Gerenciamento de Clientes'
+        }) %>
+
+        <div class="flex-container">
+            <div class="container-index">
         
-            <form class="filtro_clientes">
-                <h2>Filtrar Cliente</h2>
-                <input id="nome" type="text" placeholder="Nome">
-                <input id="cpf" type="text" placeholder="CPF ">
-                <button type="submit" id="btn-filtro">Filtrar</button>
-            </form>
-            
-            <div class="button">
-                <a href="/cadastro">Cadastrar Cliente</a>
+                <form class="filtro_clientes">
+                    <h2>Filtrar Cliente</h2>
+                    <input id="nome" type="text" placeholder="Nome">
+                    <input id="cpf" type="text" placeholder="CPF ">
+                    <button type="submit" id="btn-filtro">Filtrar</button>
+                </form>
+        
+                <div class="button">
+                    <a href="/cadastro">Cadastrar Cliente</a>
+                </div>
+                <div class="all-clientes"></div>
+        
             </div>
-
-            <div class="all-clientes"></div>
-            
         </div>
+
+        <%- include('components/footer') %>
     </div>
 
     <script type="module" src="/javaScript/pages/index.js"></script>
