@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.use('/', routes);
 
 //Configurando o caminho das views
-app.set('views', path.join(__dirname, 'public', 'views'));
+app.set('views', path.join(__dirname, 'views'));
 
 //Iniciando o servidor
 const PORT = 3000;

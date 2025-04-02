@@ -1,10 +1,17 @@
+import { validarCliente } from "/javaScript/validations/validacoesCliente.js";
 import { cadastrarService } from "/javaScript/service/operacoesService.js";
+import { mascarasCliente } from "/javaScript/validations/validacoesCliente.js";
 
+mascarasCliente();
 
 //Função que cadastra um cliente novo
 document.querySelector('form').addEventListener('submit', async function(event){
   
     event.preventDefault();
+
+    if(!validarCliente(event)){
+        return;
+    }
 
     //Pegando dados do formulário
     const formDados = new FormData(event.target);
