@@ -198,7 +198,7 @@ INSERT INTO contato (con_tipo, con_valor, con_observacao, con_clt_id) VALUES
 ('Telefone', '(62) 99876-5432', 'Celular', 9),
 ('Email', 'gustavo.ferreira@email.com', 'Email profissional', 9),
 ('Telefone', '(61) 97543-2109', 'Celular', 10),
-('Email', 'larissa.rocha@email.com', 'Email do trabalho', 10);
+('Email', 'joao.neto@email.com', 'Email pessoal', 10);
 ```
 
 #### 5. Acesse a aplicação no navegador
