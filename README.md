@@ -60,7 +60,7 @@ Abaixo estão listadas todas as tecnologias que foram utilizadas para realizar e
 - MySQL
 - Java (Spring-Boot)
 
-<h2 id="started">🚀 Como rodar o crud localmente</h2>
+<h2 id="started">🚀 Como rodar localmente</h2>
 
 <h3>Pré-Requisitos</h3>
 
