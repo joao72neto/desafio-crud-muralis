@@ -51,7 +51,7 @@ edição.
 
 <h2 id="tech">💻 Tecnologias</h2>
 
-Abaixo estão listadas todas as tecnologias que serão utilizadas para realizar este sistema:
+Abaixo estão listadas todas as tecnologias que foram utilizadas para realizar este sistema:
 
 - JavaScript
 - HTML
