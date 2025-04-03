@@ -49,7 +49,7 @@ edição.
 </div>
 
 <div align="center">
-     <a href="https://drive.google.com/file/d/1qNCg6omZ2RCnhKj5-q9WSpPfj57hOaAj/view?usp=sharing">Vídeo Demonstrativo 🎥</a>
+     <a target="_blank" href="https://drive.google.com/file/d/1qNCg6omZ2RCnhKj5-q9WSpPfj57hOaAj/view?usp=sharing">Vídeo Demonstrativo 🎥</a>
 </div>
 
 
