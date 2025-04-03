@@ -65,7 +65,7 @@ Abaixo estão listadas todas as tecnologias que foram utilizadas para realizar e
 <h3>Pré-Requisitos</h3>
 
 - [Node.js](https://nodejs.org/pt)
-- Navegador (O crud foi feito inteiramente no [Google Chrome](https://www.google.pt/intl/pt-PT/chrome/?brand=FHFK&ds_kid=43700076570751463&gad_source=1&gclid=CjwKCAjwnPS-BhBxEiwAZjMF0qoMYAhnW_TjZMxq-DQQjfiJw79PMomQhhoNvzEn79KgchseT9NmbxoCSQ0QAvD_BwE&gclsrc=aw.ds))
+- Navegador (O sistema foi feito inteiramente no [Google Chrome](https://www.google.pt/intl/pt-PT/chrome/?brand=FHFK&ds_kid=43700076570751463&gad_source=1&gclid=CjwKCAjwnPS-BhBxEiwAZjMF0qoMYAhnW_TjZMxq-DQQjfiJw79PMomQhhoNvzEn79KgchseT9NmbxoCSQ0QAvD_BwE&gclsrc=aw.ds))
 - MySQL
   - Servers (Qualquer um dos 3)
     - [USBWebServer](https://usbwebserver.yura.mk.ua/)
@@ -79,15 +79,15 @@ Abaixo estão listadas todas as tecnologias que foram utilizadas para realizar e
 
 ## Configuração do Banco
 
-#### 1. Clone o repositório
+#### 1. Clonar o repositório
 Abra o terminal e execute o seguinte comando para baixar o projeto:
 
 ```bash
-git clone https://github.com/joao72neto/e-commerce-livros.git
+git clone https://github.com/joao72neto/desafio-crud-muralis.git
 ```
 
 #### 2. Configuração do Banco
-Entre no diretório abaixo, abra o arquivo application.properties:
+Entre no diretório abaixo, abra o arquivo ```application.properties```:
 ```bash
 cd backend/src/main/resources
 ```
@@ -203,5 +203,5 @@ Copie e cole a URL abaixo na barra de endereços do seu navegador:
 ```bash
 http://localhost:3000/
 ```
-Agora, o CRUD está pronto para uso! 🚀
+Agora, o CRUD está pronto para teste! 🚀
 
