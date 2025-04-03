@@ -10,7 +10,7 @@
 <h2>Descrição do Projeto</h2>
 
 <p align="left">
-  <p>O sistema tem com principal funcionalidade o gerenciamento de clientes e seus contatos. Abaixo há uma checklist com todas as suas funcionalidades que foram implementadas para este sistema.</p>
+  <p>O sistema tem com principal funcionalidade o gerenciamento de clientes e seus contatos. Abaixo há uma checklist com todos os requisitos que foram implementadas para este sistema.</p>
 
 ### Lista de Requisitos Funcionais Implementados
 
